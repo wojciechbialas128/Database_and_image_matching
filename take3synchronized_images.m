@@ -8,9 +8,14 @@ function [img1, img2, img3, dir1 ,dir2, dir3] = take3synchronized_images(image_n
  
  %wyszukiwanie obrazów najlepiej dopasowanych czasowo do obrazu g³êbokoœci
  %obrazu
- namesd=dir('D:\Studia_files\INZYNIERKA_FILES\Newest_records\Depth_img\20*');
- namesc=dir('D:\Studia_files\INZYNIERKA_FILES\Newest_records\Color_img\20*');
- namest=dir('D:\Studia_files\INZYNIERKA_FILES\Newest_records\Thermo_img\20*');
+ dir_code = cd;
+ cd ..;
+ dir_main = cd;
+ dir_images = [dir_main '\Multimodal image']; 
+ cd (dir_code);
+ namesd=dir([dir_images '\Depth_img\20*']);
+ namesc=dir([dir_images '\Color_img\20*']);
+ namest=dir([dir_images '\Thermo_img\20*']);
  namesd = {namesd.name};
  namesc = {namesc.name};
  namest = {namest.name};
@@ -57,7 +62,7 @@ function [img1, img2, img3, dir1 ,dir2, dir3] = take3synchronized_images(image_n
  disp(dir3);
 
  %otwieranie:
- dir0='D:\Studia_files\INZYNIERKA_FILES\Newest_records\';
+ dir0=[dir_images '\'];
  tmp=[dir0,'Depth_img\',dir1];
  img1=imread(tmp);
  tmp=[dir0,'Color_img\',dir2];
