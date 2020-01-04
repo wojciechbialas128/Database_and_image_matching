@@ -1,4 +1,4 @@
-function [img_out] = match3_img(numer_obrazu_w_folderze)
+function [] = match3_img(numer_obrazu_w_folderze)
   if(nargin==0) 
       numer_obrazu_w_folderze=1;
   end
