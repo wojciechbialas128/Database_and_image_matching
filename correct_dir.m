@@ -82,8 +82,8 @@ w=src(1:5);
     w(22)='0';
     w(23)='0';
     w(24)='.';
-    w(25)='p';
-    w(26)='n';
+    w(25)='j';
+    w(26)='p';
     w(27)='g';
   elseif k2==k1+3 %dwucyfrowa milisekunda - chyba tutaj trzeba zrobiæ inaczej
     %-nale¿y zera dopisaæ do koñca, a nie do pocz¹tku.
@@ -91,8 +91,8 @@ w=src(1:5);
     w(22)=src(k1+2);
     w(23)='0';
     w(24)='.';
-    w(25)='p';
-    w(26)='n';
+    w(25)='j';
+    w(26)='p';
     w(27)='g';
   else
       w(21:27)=src(k1+1:k1+7);
