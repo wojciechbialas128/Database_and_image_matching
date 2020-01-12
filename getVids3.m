@@ -8,6 +8,7 @@ if (~exist('colorVid','var') && ~exist('depthVid', 'var'))
 
     try
         colorVid = videoinput('kinect',1, 'RGB_1280x960');
+        %colorVid = videoinput('kinect',1, 'RGB_640x480');
         depthVid = videoinput('kinect',2, 'Depth_640x480');
         disp('Kinect Xbox 360 detected');
         disp('RGB_1280x960');

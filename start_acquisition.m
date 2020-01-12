@@ -30,7 +30,7 @@ function [img1,img2,img3,time1,time2,time3] = start_acquisition(ile_klatek, new_
             frame=frame+3;
         
             %figure(4);
-            pause(0.3);
+            pause(0.1);
             img1(:,:,:,t)=p1.CData;
             timet=datetime;
             timet.Format='yyyy_MM_dd_HH_mm_ss.SSS';
@@ -38,18 +38,17 @@ function [img1,img2,img3,time1,time2,time3] = start_acquisition(ile_klatek, new_
             
             disp(frame-mod(frame,3));
 
+            pause(0.1);
             img2(:,:,:,t)=p2.CData;
             timet=datetime;
             timet.Format='yyyy_MM_dd_HH_mm_ss.SSS';
             time2(t)=timet;
         
+            pause(0.1);
             img3(:,:,:,t)=p3.CData;
             timet=datetime;
             timet.Format='yyyy_MM_dd_HH_mm_ss.SSS';
             time3(t)=timet;
-            if (t==100)
-                size(img1)
-            end
         end
         timeend=timet;
         close all;
