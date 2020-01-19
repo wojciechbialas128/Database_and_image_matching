@@ -10,7 +10,7 @@ close all;
         show=false; 
     end
     if nargin >0 
-        img1=imresize(img1, [240 320]);
+        %img1=imresize(img1, [240 320]);
         img1= im2uint8(img1);
         img1=normalize_img(img1);
         if show==1

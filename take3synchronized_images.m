@@ -1,5 +1,7 @@
-function [img1, img2, img3, dir1 ,dir2, dir3] = take3synchronized_images() 
- 
+function [img1, img2, img3, dir1 ,dir2, dir3] = take3synchronized_images (no_grayscale) 
+ if (nargin < 1)
+    no_grayscale = 0;
+ end
  %wyszukiwanie obrazów najlepiej dopasowanych czasowo do obrazu g³êbokoœci
  %obrazu
  dir_code = cd;
@@ -122,12 +124,15 @@ end
  img1=imread(tmp);
  tmp=[dir0,'Color_img\',dir2];
  img2=imread(tmp);
-
- img2=rgb2gray(img2);
+ if (no_grayscale == 0)
+    img2=rgb2gray(img2);
+ end
 
  tmp=[dir0,'Thermo_img\',dir3];
  img3=imread(tmp);
- img3=rgb2gray(img3);
+ if (no_grayscale == 0)
+    img3=rgb2gray(img3);
+ end
  %img3=img3(1:(size(img3,1))-10,1:size(img3,2)); %%ucinam, bo jest czarna linia na dole
  img3=flip(img3,2);
 end

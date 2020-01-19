@@ -1,4 +1,4 @@
-function [img1,img2,img3,time1,time2,time3] = start_acquisition(ile_klatek, new_location, save)
+function [img1,img2,img3,time1,time2,time3] = start_acquisition(frames, new_location, save)
 %Funkcja do zapisu obrazów 2x kinect oraz termowizja Flir 
     close all;
     if nargin~=3
@@ -26,7 +26,7 @@ function [img1,img2,img3,time1,time2,time3] = start_acquisition(ile_klatek, new_
         timestart=timet;
       	disp('Start acquisition');
         frame=0;
-        for t=1:ile_klatek
+        for t=1:frames
             frame=frame+3;
         
             %figure(4);
@@ -59,20 +59,20 @@ function [img1,img2,img3,time1,time2,time3] = start_acquisition(ile_klatek, new_
         pause(1);
         timet=datetime;
         timet.Format='yyyy_MM_dd_HH_mm_ss.SSS';
-            for t=1:ile_klatek
+            for t=1:frames
                 if nargin>1
                     save3images(img1(:,:,:,t), img2(:,:,:,t), img3(:,:,:,t), time1(t), time2(t), time3(t), new_location);
                 else
                     save3images(img1(:,:,:,t), img2(:,:,:,t), img3(:,:,:,t), time1(t), time2(t), time3(t));
                 end
-                procent=t/ile_klatek;
+                procent=t/frames;
                 procent=procent*100;
                 disp(['Zapisano ', num2str(procent),'%']);
             end
         disp ('Akwizycja zakoñczona');
         disp (['Time start = ', string(timestart)]);
         disp ([' Time end  = ', string(timeend)]);
-        disp (['Taken 3x', num2str(ile_klatek), ' frames']);
+        disp (['Taken 3x', num2str(frames), ' frames']);
   	end
 end
 

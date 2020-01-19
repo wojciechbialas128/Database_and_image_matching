@@ -39,7 +39,7 @@ if (~exist('gigeThermoVid', 'var'))
     try
         gigeThermoVid=gigecam(1);
     catch
-        disp('Unable to connect to Flir 325sc');
+        disp('Unable to connect to Flir A325sc');
         isOK=0;
     end
 end
